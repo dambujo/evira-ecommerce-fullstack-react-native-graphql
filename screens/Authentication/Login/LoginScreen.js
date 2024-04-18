@@ -10,6 +10,8 @@ import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome6 } from '@expo/vector-icons';
+import SocialButton from '../../../components/Auth/Login/SocialButton';
+import Button from '../../../components/Auth/Button/Button';
 const { height } = Dimensions.get('window');
 
 const LoginScreen = ({ navigation }) => {
@@ -18,7 +20,7 @@ const LoginScreen = ({ navigation }) => {
       <View style={styles.container}>
         <TouchableOpacity
           style={styles.icon}
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.navigate('OnBoarding')}
         >
           <AntDesign name="arrowleft" size={24} color="black" />
         </TouchableOpacity>
@@ -35,18 +37,16 @@ const LoginScreen = ({ navigation }) => {
           />
           <Text style={styles.in}>Lets's you in</Text>
           <View style={styles.social}>
-            <FontAwesome6 name="facebook" size={24} color="blue" />
-            <AntDesign name="google" size={24} color="blue" />
-            <AntDesign name="apple1" size={24} color="black" />
+            <SocialButton />
           </View>
-          <View>
-            <Text>or</Text>
-          </View>
-          <View>
-            <Text>Sign in with password</Text>
-            <Text>Dont have an account?</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-              <Text>Sign Up</Text>
+          <View></View>
+          <View className="flex-row mt-4 ">
+            <Text className="text-slate-400">Dont have an account?</Text>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Register')}
+              className="ml-2"
+            >
+              <Text>Sign up</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -79,5 +79,9 @@ const styles = StyleSheet.create({
   social: {
     marginTop: 30,
     flexDirection: 'column',
+  },
+  button: {
+    flexDirection: 'row',
+    // padding: 2,
   },
 });

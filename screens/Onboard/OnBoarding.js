@@ -18,7 +18,7 @@ const OnBoarding = ({ navigation }) => {
     if (currentIndex < slides.length - 1) {
       slideRef.current.scrollToIndex({ index: currentIndex + 1 });
     } else {
-      navigation.navigate('Home');
+      navigation.navigate('Login');
     }
   };
 
